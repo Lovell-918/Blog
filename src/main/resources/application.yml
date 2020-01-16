@@ -1,0 +1,15 @@
+spring:
+  profiles:
+    active: #spring.profiles.active#
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog_db?serverTimezone=CTT&characterEncoding=UTF-8&useAffectedRows=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  thymeleaf:
+    cache: false
+  jackson:
+    time-zone: GMT+8
+
+mybatis:
+  mapper-locations: classpath:com/example/blog/service/impl/*.xml  #注意：一定要对应mapper映射xml文件的所在路径
