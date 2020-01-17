@@ -44,5 +44,8 @@
        <table tableName="reply" domainObjectName="Reply" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
            <property name="ignoreQualifiersAtRuntime" value="true"/>
        </table>
+       <table tableName="collection" domainObjectName="Collection" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+           <property name="ignoreQualifiersAtRuntime" value="true"/>
+       </table>
    </context>
 </generatorConfiguration>

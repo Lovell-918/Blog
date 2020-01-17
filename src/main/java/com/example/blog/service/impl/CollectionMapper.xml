@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.blog.service.CollectionMapper">
+  <resultMap id="BaseResultMap" type="com.example.blog.entity.CollectionKey">
+    <id column="user_id" jdbcType="INTEGER" property="userId" />
+    <id column="article_id" jdbcType="INTEGER" property="articleId" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="com.example.blog.entity.CollectionKey">
+    delete from collection
+    where user_id = #{userId,jdbcType=INTEGER}
+      and article_id = #{articleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.example.blog.entity.CollectionKey">
+    insert into collection (user_id, article_id)
+    values (#{userId,jdbcType=INTEGER}, #{articleId,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.example.blog.entity.CollectionKey">
+    insert into collection
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>
