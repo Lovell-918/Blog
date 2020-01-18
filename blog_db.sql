@@ -138,6 +138,21 @@ CREATE TABLE IF NOT EXISTS `blog_db`.`collection` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `blog_db`.`blogger`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `blog_db`.`blogger` (
+  `id` INT NOT NULL,
+  `name` VARCHAR(45) NOT NULL,
+  `qq` VARCHAR(15) NOT NULL,
+  `job` VARCHAR(45) NOT NULL,
+  `address` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+  ENGINE = InnoDB;
+
+insert into blog_db.blogger values (0,'赖宝光','1205199886','待业','广西-玉林','laibaoguang@outlook.com');
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
