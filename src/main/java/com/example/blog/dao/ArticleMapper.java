@@ -1,7 +1,9 @@
-package com.example.blog.service;
+package com.example.blog.dao;
 
 import com.example.blog.entity.Article;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ArticleMapper {
     int deleteByPrimaryKey(Integer id);
 

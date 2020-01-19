@@ -28,8 +28,7 @@ CREATE TABLE IF NOT EXISTS `blog_db`.`role` (
   UNIQUE INDEX `attribute_UNIQUE` (`attribute` ASC))
 ENGINE = InnoDB;
 
-insert into blog_db.role values (0,'Blogger'), (1,'Visitor');
-
+insert into blog_db.role values (1,'admin'),(2,'user');
 -- -----------------------------------------------------
 -- Table `blog_db`.`user`
 -- -----------------------------------------------------
@@ -151,7 +150,7 @@ CREATE TABLE IF NOT EXISTS `blog_db`.`blogger` (
   PRIMARY KEY (`id`))
   ENGINE = InnoDB;
 
-insert into blog_db.blogger values (0,'赖宝光','1205199886','待业','广西-玉林','laibaoguang@outlook.com');
+insert into blog_db.blogger values (1,'赖宝光','1205199886','待业','广西-玉林','laibaoguang@outlook.com');
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
