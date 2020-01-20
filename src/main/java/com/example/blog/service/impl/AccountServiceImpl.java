@@ -8,11 +8,14 @@ import com.example.blog.entity.vo.UserVO;
 import com.example.blog.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.DigestUtils;
+
 
 @Service
 public class AccountServiceImpl implements AccountService {
 
     private final UserMapper userMapper;
+
 
     @Autowired
     public AccountServiceImpl(UserMapper userMapper) {
@@ -30,7 +33,7 @@ public class AccountServiceImpl implements AccountService {
         User user = new User();
         user.setUsername(registerForm.getUsername());
         user.setNickname(registerForm.getNickname());
-        user.setPassword(registerForm.getPassword1());
+        user.setPassword(DigestUtils.md5DigestAsHex(registerForm.getPassword1().getBytes()));
         if(user.getUsername().equals("admin")) user.setRoleId(1);
         else user.setRoleId(2);
         if(userMapper.insertSelective(user)==0){
@@ -45,4 +48,16 @@ public class AccountServiceImpl implements AccountService {
         if(user == null) return null;
         return new UserVO(user.getUsername(),user.getNickname(),user.getPassword());
     }
+
+    @Override
+    public ResponseVO login(String username, String password) {
+        User user = userMapper.selectUserByUserName(username);
+        if(user == null || !user.getPassword().equals(DigestUtils.md5DigestAsHex(password.getBytes())))
+            return ResponseVO.fail("用户名或密码不正确");
+        ResponseVO responseVO = ResponseVO.success();
+        responseVO.setContent(new UserVO(user.getUsername(), user.getNickname(),user.getPassword()));
+        return responseVO;
+    }
+
+
 }

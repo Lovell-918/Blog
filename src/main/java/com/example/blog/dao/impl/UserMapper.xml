@@ -51,10 +51,9 @@
       </if>
     </trim>
   </insert>
-  <select id="selectByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="selectUserByUserName" parameterType="java.lang.String">
     select 
       <include refid="Base_Column_List"/>
-    from user
-    where username = #{name}
+    from user where username = #{username}
   </select>
 </mapper>

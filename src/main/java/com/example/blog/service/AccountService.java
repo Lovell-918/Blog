@@ -10,4 +10,5 @@ public interface AccountService {
      */
     ResponseVO register(RegisterForm registerForm);
     UserVO getUserVOByUsername(String username);
+    ResponseVO login(String username, String password);
 }

@@ -1,5 +1,6 @@
 package com.example.blog.configuration;
 
+/*
 import com.example.blog.dao.RoleMapper;
 import com.example.blog.dao.UserMapper;
 import com.example.blog.entity.User;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 @Service
 public class MyUserDetailsService implements UserDetailsService {
@@ -43,3 +45,4 @@ public class MyUserDetailsService implements UserDetailsService {
         return new org.springframework.security.core.userdetails.User(user.getUsername(),user.getPassword(),auths);
     }
 }
+*/

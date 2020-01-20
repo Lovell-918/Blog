@@ -15,4 +15,14 @@ public class IndexController {
     public String getIndex(){
         return "index";
     }
+
+    @RequestMapping("/login")
+    public String getLogin(){
+        return "login";
+    }
+
+    @RequestMapping("/register")
+    public String getRegister(){
+        return "register";
+    }
 }

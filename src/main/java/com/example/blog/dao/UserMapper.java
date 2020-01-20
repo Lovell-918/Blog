@@ -10,5 +10,5 @@ public interface UserMapper {
     int insertSelective(User record);
 
     //这是我加的
-    User selectUserByUserName(String name);
+    User selectUserByUserName(String username);
 }
